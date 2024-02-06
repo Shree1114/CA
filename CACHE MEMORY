@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+void simulateCache(int arraySize) {
+     for (int i = 0; i < arraySize; ++i) {
+         }
+}
+int main() {
+    printf("Simulating cache behavior...\n");
+    // Simulate cache behavior with different array sizes
+    simulateCache(1024);  // Small array fits in the cache
+    simulateCache(2048);  // Larger array, might experience cache misses
+    printf("Simulation complete.\n");
+    return 0;
+}
