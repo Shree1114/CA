@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+// Define a mock ROM data
+const char romData[] = "Hello, this is data from ROM!";
+
+int main() {
+    // Access and print data from ROM
+    printf("Data from ROM: %s\n", romData);
+
+    return 0;
+}
