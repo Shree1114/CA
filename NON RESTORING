@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void nonRestoringDivision(int dividend, int divisor) {
+    unsigned int numerator = dividend;  // Convert to unsigned for easier manipulation
+    unsigned int quotient = 0;
+    int negDivisor = -divisor;
+
+    for (int i = 0; i < 32; i++) {  // Assuming 32-bit numbers
+        quotient = quotient << 1;    // Left shift quotient
+        numerator = numerator << 1;  // Left shift numerator
+        if (numerator & 0x80000000)  // Check the most significant bit
+            numerator += 1;          // Increment if the most significant bit is set
+        numerator += negDivisor;     // Subtract the divisor
+
+        if (numerator & 0x80000000) {  // Check if result is negative
+            numerator += divisor;      // Add back the divisor
+        } else {
+            quotient += 1;             // Increment the quotient if subtraction was successful
+        }
+    }
+
+    printf("Quotient: %u\n", quotient);
+    printf("Remainder: %u\n", numerator);
+}
+
+int main() {
+    int dividend, divisor;
+
+    printf("Enter the dividend: ");
+    scanf("%d", &dividend);
+
+    printf("Enter the divisor: ");
+    scanf("%d", &divisor);
+
+    nonRestoringDivision(dividend, divisor);
+
+    return 0;
+}
