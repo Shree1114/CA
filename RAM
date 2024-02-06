@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    // Allocate memory for an integer
+    int *ptr = (int *)malloc(sizeof(int));
+    if (ptr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    // Write to and read from the allocated memory
+    *ptr = 42;
+    printf("The value at the allocated memory location is: %d\n", *ptr);
+    // Free the allocated memory
+    free(ptr);
+     printf("The value at the allocated memory location is: %d\n", *ptr);
+    return 0;
+}
