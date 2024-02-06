@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define PAGE_SIZE 4096
+#define NUM_PAGES 1024
+#define VIRTUAL_MEMORY_SIZE (PAGE_SIZE * NUM_PAGES)
+int main() {
+    srand(42);
+    for (int i = 0; i < 10; ++i) {
+        int virtual_address = rand() % VIRTUAL_MEMORY_SIZE;
+        printf("Virtual Address: %d\n", virtual_address);
+    }
+    return 0;
+}
