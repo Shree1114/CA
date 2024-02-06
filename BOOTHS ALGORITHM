@@ -1,0 +1,25 @@
+#include <stdio.h>
+int boothMultiplication(int multiplicand, int multiplier) {
+    int result = 0;
+    int a = multiplicand;
+    int b = multiplier;
+    int product = 0;
+    int count = 4;
+    while (count != 0) {
+        if (b & 1) {
+            product += a;
+        }
+        a <<= 1;
+        b >>= 1;
+        count--;
+    }
+    result = product;
+    return result;
+}
+int main() {
+    int multiplicand = 5; // Binary: 0101
+    int multiplier = 3;   // Binary: 0011
+    int result = boothMultiplication(multiplicand, multiplier);
+    printf("Result of multiplication: %d\n", result);
+    return 0;
+}
