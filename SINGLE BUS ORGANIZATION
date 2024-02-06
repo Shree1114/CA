@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    int memory[10] = {0};  // Array to represent memory
+    // Write data to memory
+    int address = 5;
+    int data = 42;
+    memory[address] = data;
+    // Read data from memory
+    int readData = memory[address];
+    // Print the read data
+    printf("Data read from memory at address %d: %d\n", address, readData);
+    return 0;
+}
