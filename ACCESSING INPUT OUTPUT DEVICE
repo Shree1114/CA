@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main() {
+    FILE *filePointer; // File pointer to handle file operations
+    char data[100];    // Array to store data read from file
+    // Writing data to a file
+    filePointer = fopen("sample.txt", "w"); // Open file in write mode
+     fprintf(filePointer, "Hello, World!\n"); // Write data to the file
+    fclose(filePointer); // Close the file
+    // Reading data from a file
+    filePointer = fopen("sample.txt", "r"); // Open file in read mode
+    if (filePointer == NULL) {
+        printf("Error opening the file.\n");
+        return 1;
+    }
+    fgets(data, 100, filePointer); // Read up to 100 characters from the file
+    printf("Data from the file: %s", data);
+    fclose(filePointer); // Close the file
+    return 0;
+}
